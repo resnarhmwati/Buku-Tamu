@@ -1,3 +1,13 @@
+<?php
+//memulai session
+session_start();
+
+// cek bila tidak ada user yang login maka akan di redirect ke halaman login 
+if(!isset($_SESSION['login'])) {
+    header('location:login.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
