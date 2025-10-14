@@ -118,7 +118,6 @@ if(isset($_POST['tampilkan'])) {
 
         </div>
         <!-- /.container-fluid -->
-
 <?php
 include_once('templates/footer.php');
 ?>
