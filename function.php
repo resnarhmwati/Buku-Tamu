@@ -50,14 +50,22 @@ function ubah_tamu($data)
     $no_hp          = htmlspecialchars($data["no_hp"]);
     $bertemu        = htmlspecialchars($data["bertemu"]);
     $kepentingan    = htmlspecialchars($data["kepentingan"]);
+    $gambarLama     = htmlspecialchars($data['gambarLama']);
 
+    //cek apakah user user pilih gambar baru atau tidak
+    if ($_FILES['gambar']['error'] == 4) {
+        $gambar = $gambarLama;
+    } else {
+        $gambar = uploadGambar();
+    }
     $query = "UPDATE buku_tamu SET
                 nama_tamu      = '$nama_tamu',
                 alamat         = '$alamat',
                 no_hp          = '$no_hp',
                 bertemu        = '$bertemu',
                 kepentingan    = '$kepentingan'
-              WHERE id_tamu = '$id' ";
+                gambar         = '$gambar'
+                WHERE id_tamu = '$id' ";
 
     mysqli_query($koneksi, $query);
 
