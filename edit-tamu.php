@@ -97,4 +97,3 @@ include_once('function.php');
 <?php
 include_once('templates/footer.php');
 ?>
-
