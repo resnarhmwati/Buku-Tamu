@@ -138,3 +138,4 @@ function ganti_password($data) {
 }
 
 ?>
+
