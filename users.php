@@ -1,7 +1,15 @@
 <?php
 require_once('function.php');
 include_once('templates/header.php');
+
+// pengecekan user role bukan admin maka tidak boleh mengakses halaman
+if($_SESSION['role'] != 'admin') {
+    echo"<script>alert('anda tidak memiliki akses')</script>";
+    echo"<script>window.location.href='index.php'</script>";
+}
 ?>
+
+
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
@@ -9,38 +17,37 @@ include_once('templates/header.php');
             <h1 class="h3 mb-4 text-gray-800">Data User</h1>
 
             <?php
-// jika ada tombol simpan
-if (isset($_POST['simpan'])) {
-    if (tambah_user($_POST) > 0) {
-?>
-        <div class="alert alert-success" role="alert">
-            Data berhasil disimpan!
-        </div>
-<?php
-    } else {
-?>
-        <div class="alert alert-danger" role="alert">
-            Data gagal disimpan!
-        </div>
-<?php
-    }
-} else if (isset($_POST['ganti_password'])) {
-    if (ganti_password($_POST) > 0) {
-?>
-        <div class="alert alert-success" role="alert">
-            Password berhasil diubah!
-        </div>
-<?php
-    } else {
-?>
-        <div class="alert alert-danger" role="alert">
-            Password gagal diubah!
-        </div>
-<?php
-    }
-}
-?>
-
+            // jika ada tombol simpan
+            if (isset($_POST['simpan'])) {
+                if (tambah_user($_POST) > 0) {
+            ?>
+                    <div class="alert alert-success" role="alert">
+                        Data berhasil disimpan!
+                    </div>
+            <?php
+                } else {
+            ?>
+                    <div class="alert alert-danger" role="alert">
+                        Data gagal disimpan!
+                    </div>
+            <?php
+                }
+            } else if (isset($_POST['ganti_password'])) {
+                if (ganti_password($_POST) > 0) {
+            ?>
+                    <div class="alert alert-success" role="alert">
+                        Password berhasil diubah!
+                    </div>
+            <?php
+                } else {
+            ?>
+                    <div class="alert alert-danger" role="alert">
+                        Password gagal diubah!
+                    </div>
+            <?php
+                }
+            }
+            ?>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
