@@ -122,7 +122,7 @@ $kodeTamu = $huruf . sprintf("%03s", $urutan);
         </button>
       </div>
       <div class="modal-body">
-    <form method="post" action="">
+    <form method="post" action="" enctype="multipart/form-data">
         <input type="hidden" name="id_tamu" id="id_tamu" value="<?= $kodeTamu ?>">
         <div class="form-group row">
             <label for="nama_tamu" class="col-sm-3 col-form-label">Nama Tamu</label>
@@ -152,6 +152,13 @@ $kodeTamu = $huruf . sprintf("%03s", $urutan);
             <label for="kepentingan" class="col-sm-3 col-form-label">Kepentingan</label>
             <div class="col-sm-8">
                 <input type="text" class="form-control" id="kepentingan" name="kepentingan">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="gambar" class="col-sm-3 col-form-label">Unggah foto</label>
+            <div class="custom-file col-sm-8">
+                <input type="file" class="custom-file-input" id="gambar" name="gambar">
+                <label class="custom-file-label" for="gambar">Choose file</label>
             </div>
         </div>
         <div class="modal-footer">
